@@ -1,0 +1,172 @@
+<html>
+<head>
+</head>
+<body>
+<script type="text/javascript">
+// From http://www.cforcoding.com/2009/07/plain-english-explanation-of-big-o.html
+// Use mobile User-Agent
+
+    var e = !1, f = window, g = Function, h = document, i = Math, j = Array, k = "appendChild", l = "length", n = "prototype", p = "slice", q = "indexOf", r = "call", t = "createElement", u = "addEventListener", w = "apply", x = "bind", y = "", z = " ", A = "div", aa = "native code", ba = "navigating", B = "prerender", ca = "px", da = "px, 0, 0)", ea = "string", C = "swiping", fa = "touchend", ga = "touchmove", ha = "touchstart", ia = "translate3d(";
+    function D(a) {
+        return typeof a == ea
+    }
+    i.floor(2147483648 * i.random()).toString(36);
+    function ja(a, c, b) {
+        return a[r][w](a[x], arguments)
+    }
+    function ka(a, c, b) {
+        if (!a)
+            throw Error();
+        if (2 < arguments[l]) {
+            var d = j[n][p][r](arguments, 2);
+            return function() {
+                var b = j[n][p][r](arguments);
+                j[n].unshift[w](b, d);
+                return a[w](c, b)
+            }
+        }
+        return function() {
+            return a[w](c, arguments)
+        }
+    }
+    function E(a, c, b) {
+        E = g[n][x] && -1 != g[n][x].toString()[q](aa) ? ja : ka;
+        return E[w](null, arguments)
+    }
+    g[n].bind = g[n][x] || function(a, c) {
+        if (1 < arguments[l]) {
+            var b = j[n][p][r](arguments, 1);
+            b.unshift(this, a);
+            return E[w](null, b)
+        }
+        return E(this, a)
+    };
+    i.random();
+    var F = j[n], G = F[q] ? function(a, c, b) {
+        return F[q][r](a, c, b)
+    } : function(a, c, b) {
+        b = null == b ? 0 : 0 > b ? i.max(0, a[l] + b) : b;
+        if (D(a))
+            return !D(c) || 1 != c[l] ? -1 : a[q](c, b);
+        for (; b < a[l]; b++)
+            if (b in a && a[b] === c)
+                return b;
+        return -1
+    }, la = F.filter ? function(a, c, b) {
+        return F.filter[r](a, c, b)
+    } : function(a, c, b) {
+        for (var d = a[l], m = [], s = 0, Y = D(a) ? a.split(y) : a, v = 0; v < d; v++)
+            if (v in Y) {
+                var Z = Y[v];
+                c[r](b, Z, v, a) && (m[s++] = Z)
+            }
+        return m
+    };
+    function H(a, c, b) {
+        return 2 >= arguments[l] ? F[p][r](a, c) : F[p][r](a, c, b)
+    }
+    ;
+    function ma(a) {
+        a = a.className;
+        return D(a) && a.match(/\S+/g) || []
+    }
+    function I(a, c) {
+        for (var b = ma(a), d = H(arguments, 1), m = b, s = 0; s < d[l]; s++)
+            0 <= G(m, d[s]) || m.push(d[s]);
+        a.className = b.join(z)
+    }
+    function na(a, c) {
+        var b = ma(a), d = H(arguments, 1), b = la(b, function(a) {
+            return !(0 <= G(d, a))
+        });
+        a.className = b.join(z)
+    }
+    ;
+    function J(a, c, b, d, m) {
+        this.h = c;
+        this.g = b;
+        this.f = d;
+        this.i = m || 4;
+        this.c = e;
+        this.a = this.b = this.e = this.d = 0;
+        a[u] && (a[u](ha, E(this.l, this), e), a[u](ga, E(this.k, this), e), a[u](fa, E(this.j, this), e))
+    }
+    J[n].l = function(a) {
+        a = a.targetTouches;
+        1 == a[l] ? (this.d = a[0].pageX, this.e = a[0].pageY, this.a = this.b = 0, this.c = !0) : (this.f(0), this.c = e)
+    };
+    J[n].k = function(a) {
+        if (this.c) {
+            var c = a.targetTouches[0];
+            this.b = c.pageX - this.d;
+            if (0 == this.a) {
+                var b = c.pageY - this.e, c = this.i, d = i.abs(this.b), b = i.abs(b);
+                this.a = d + b < c ? 0 : d > 1.73 * b ? 1 : 2;
+                1 == this.a && this.h()
+            }
+            2 != this.a && (a.preventDefault(), 1 == this.a && this.g(this.b))
+        }
+    };
+    J[n].j = function(a) {
+        this.c && 1 == this.a && (this.c = e, a.preventDefault(), this.f(this.b))
+    };
+    function oa() {
+        K || (L = M = 0, I(N, C), N.style.top = f.innerHeight / 2 + h.body.scrollTop + ca)
+    }
+    function pa(a) {
+        K || (M += a - L, M = i.max(i.min(M, O), -O), L = a, qa(M / O))
+    }
+    function ra() {
+        var a = 0 > M ? P : Q;
+        i.abs(M) < O || !a || !a.href ? na(N, C) : (I(N, ba), qa(0 > M ? -1 : 1), h.location = a.href, K = !0)
+    }
+    function qa(a) {
+        var c = 60 * a, a = i.abs(a);
+        R.style.opacity = a + y;
+        R.style.webkitTransform = ia + c + da
+    }
+    function sa(a) {
+        var c = h[t](A);
+        c.id = a;
+        return c
+    }
+    var S = S || "http://img2.blogblog.com/img", ta = S + "/mobile-swipe-loading.gif", ua = S + "/mobile-swipe-arrow-left.png", va = S + "/mobile-swipe-arrow-right.png", O = 60, N, R, M, L, Q, P, K = e;
+    if ("ontouchstart" in f) {
+        var T = h.getElementById("http://tulap.net/loi-bai-hat-old/30197/dqa/"), U = h.getElementById("http://tulap.net/loi-bai-hat-new/30199/dqa/");
+        if (T || U) {
+            Q = T;
+            P = U;
+            "rtl" === BLOG_LANG_DIR && (Q = U, P = T);
+            var wa = h.getElementById("main");
+            new J(wa, oa, pa, ra);
+            var O = i.max(0.15 * screen.width, 60), V = Q || P, xa = "black";
+            V && V.parentElement && (xa = f.getComputedStyle(V.parentElement).backgroundColor);
+            var W = xa, ya = h[t]("style");
+            ya[k](h.createTextNode("#arrow-container {  display: none;  height: 120px;  margin-top: -60px;  overflow: hidden;  position: absolute;  width: 100%;}#arrow-container.prerender, #arrow-container.swiping {  display: block;}#left-arrow, #right-arrow {  background-color:" + 
+            W + ';  background-position: center center;  background-repeat: no-repeat;  display: inline-block;  height: 120px;  line-height: 120px;  position: absolute;  text-align: center;  width: 60px;}#left-arrow {  background-image: url("' + ua + '");  border-radius: 0 60px 60px 0;  left: -60px;}#right-arrow {  background-image: url("' + va + '");  border-radius: 60px 0 0 60px;  right: -60px;}#left-arrow:after, #right-arrow:after {  background-color:' + W + ";  border: solid 2px " + W + ';  content: url("' + ta + '");  display: none;  line-height: 0;  vertical-align: middle;}#arrow-container.navigating #left-arrow:after,#arrow-container.navigating #right-arrow:after {  display: inline-block;}'));
+            (h.getElementsByTagName("head")[0] || h.body)[k](ya);
+            var za = !!Q, Aa = !!P, X = h[t](A);
+            X.id = "arrow-container";
+            var $ = h[t](A);
+            $.id = "arrow-slider";
+            if (za) {
+                var Ba = sa("left-arrow");
+                $[k](Ba)
+            }
+            if (Aa) {
+                var Ca = sa("right-arrow");
+                $[k](Ca)
+            }
+            X[k]($);
+            N = X;
+            h.body[k](N);
+            R = N.firstChild;
+            I(N, B);
+            f.setTimeout(function() {
+                na(N, B)
+            }, 0)
+        }
+    }
+</script>
+</body>
+</html>
